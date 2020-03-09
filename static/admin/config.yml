@@ -25,12 +25,22 @@ collections:
       - { label: "Description", name: "description", widget: "string" }
       - { label: "Body", name: "body", widget: "markdown" }
 
-  - name: "settings"
-    label: "Settings"
+  - name: "profile"
+    label: "Profile"
     files:
-      - file: "content/author/index.md"
-        name: "author"
-        label: "Author"
+      - file: "content/profile/index.md"
+        name: "profile"
+        label: "Profile"
         fields:
           - { label: "Name", name: "name", widget: "string" }
           - { label: "Summary", name: "summary", widget: "string" }
+          - {
+              label: "Links",
+              name: "links",
+              widget: "list",
+              fields:
+                [
+                  { label: Title, name: title, widget: string },
+                  { label: href, name: href, widget: string },
+                ],
+            }
