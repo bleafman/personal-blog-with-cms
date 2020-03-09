@@ -28,9 +28,9 @@ collections:
   - name: "settings"
     label: "Settings"
     files:
-      - file: "content/author/index.md"
       - label: "Author"
       - name: "author"
+      - file: "content/author/index.md"
       - fields:
-          - { label: Name, name: name, widget: string }
-          - { label: Summary, name: summary, widget: string }
+          - { label: "Name", name: "name", widget: "string" }
+          - { label: "Summary", name: "summary", widget: "string" }
