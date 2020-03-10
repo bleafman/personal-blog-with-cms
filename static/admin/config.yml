@@ -25,15 +25,17 @@ collections:
       - { label: "Description", name: "description", widget: "string" }
       - { label: "Body", name: "body", widget: "markdown" }
 
-  - name: "profile"
-    label: "Profile"
+  - name: "landing page components"
+    label: "Landing Page Components"
     files:
-      - file: "content/profile/index.md"
-        name: "profile"
-        label: "Profile"
+      - file: "content/personal_profile/index.md"
+        name: "personal profile"
+        label: "Personal Profile"
         fields:
+          - { label: "Enabled", name: "enabled", widget: "boolean"}
+          - { label: "Order", name: "order", widget: "number"}
           - { label: "Name", name: "name", widget: "string" }
-          - { label: "Summary", name: "summary", widget: "string" }
+          - { label: "Tagline", name: "tagline", widget: "string" }
           - {
               label: "Links",
               name: "links",
@@ -44,3 +46,22 @@ collections:
                   { label: href, name: href, widget: string },
                 ],
             }
+      - file: "content/resume/index.md"
+        name: "resume"
+        label: "Resume"
+        fields: 
+          - { label: "Enabled", name: "enabled", widget: "boolean"}
+          - { label: "Order", name: "order", widget: "number"}
+          - {
+            label: "Work History",
+            name: "work history",
+            widget: "list",
+            fields:
+              [
+                { label: "Company", name: "company", widget: "string" },
+                { label: "Company Website URL", name: "company website", widget: "string"},
+                { label: Title, name: title, widget: string },
+                { label: "Employment Start/End", name: "employment period", widget: string },
+                { label: Bulletpoints, name: bulletpoints, widget: string}
+              ],
+          }
