@@ -20,6 +20,7 @@ collections:
     editor:
       preview: false
     fields:
+      - { label: "Enabled", name: "enabled", widget: "boolean" }
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Publish Date", name: "date", widget: "datetime" }
       - { label: "Description", name: "description", widget: "string" }
@@ -32,10 +33,15 @@ collections:
         name: "personal profile"
         label: "Personal Profile"
         fields:
-          - { label: "Enabled", name: "enabled", widget: "boolean"}
-          - { label: "Order", name: "order", widget: "number"}
+          - { label: "Enabled", name: "enabled", widget: "boolean" }
           - { label: "Name", name: "name", widget: "string" }
           - { label: "Tagline", name: "tagline", widget: "string" }
+          - { label: "About", name: "about", widget: "markdown" }
+          - {
+              label: "Profile Image",
+              name: "personal profile photo",
+              widget: "image",
+            }
           - {
               label: "Links",
               name: "links",
@@ -49,19 +55,32 @@ collections:
       - file: "content/resume/index.md"
         name: "resume"
         label: "Resume"
-        fields: 
-          - { label: "Enabled", name: "enabled", widget: "boolean"}
-          - { label: "Order", name: "order", widget: "number"}
+        fields:
+          - { label: "Enabled", name: "enabled", widget: "boolean" }
           - {
-            label: "Work History",
-            name: "work history",
-            widget: "list",
-            fields:
-              [
-                { label: "Company", name: "company", widget: "string" },
-                { label: "Company Website URL", name: "company website", widget: "string"},
-                { label: Title, name: title, widget: string },
-                { label: "Employment Start/End", name: "employment period", widget: string },
-                { label: Bulletpoints, name: bulletpoints, widget: string}
-              ],
-          }
+              label: "Work History",
+              name: "work history",
+              widget: "list",
+              fields:
+                [
+                  { label: "Company", name: "company", widget: "string" },
+                  {
+                    label: "Company Website URL",
+                    name: "company website",
+                    widget: "string",
+                  },
+                  { label: Title, name: title, widget: string },
+                  {
+                    label: "Employment Start/End",
+                    name: "employment period",
+                    widget: string,
+                  },
+                  {
+                    label: Bulletpoints,
+                    name: bulletpoints,
+                    widget: list,
+                    fields:
+                      [label: Bulletpoint, name: bulletpoint, widget: string],
+                  },
+                ],
+            }
