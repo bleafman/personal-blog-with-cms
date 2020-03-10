@@ -12,6 +12,16 @@ media_folder: static/img
 public_folder: /img
 
 collections:
+  - name: "settings"
+    label: "Settings"
+    files:
+      - file: "content/settings/index.md"
+        name: "website settings"
+        label: "Website Settings"
+        fields:
+          - { label: "Website Title", name: "title", widget: "string" }
+          - { label: "Website Description", name: "description", widgets: "string" }
+
   - name: "blog"
     label: "Blog"
     folder: "content/blog"
@@ -34,14 +44,15 @@ collections:
         label: "Personal Profile"
         fields:
           - { label: "Enabled", name: "enabled", widget: "boolean" }
+          - { label: "Order", name: "order", widget: "number" }
           - { label: "Name", name: "name", widget: "string" }
-          - { label: "Tagline", name: "tagline", widget: "string" }
-          - { label: "About", name: "about", widget: "markdown" }
           - {
               label: "Profile Image",
               name: "personal profile photo",
               widget: "image",
             }
+          - { label: "Tagline", name: "tagline", widget: "string" }
+          - { label: "About", name: "about", widget: "markdown" }
           - {
               label: "Links",
               name: "links",
@@ -57,6 +68,7 @@ collections:
         label: "Resume"
         fields:
           - { label: "Enabled", name: "enabled", widget: "boolean" }
+          - { label: "Order", name: "order", widget: "number" }
           - {
               label: "Work History",
               name: "work history",
