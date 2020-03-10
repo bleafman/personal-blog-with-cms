@@ -47,26 +47,26 @@ const BlogIndex = ({ data, location }) => {
 export default BlogIndex
 
 export const pageQuery = graphql`
-  {
-    site {
-      siteMetadata {
-        title
-      }
+{
+  site {
+    siteMetadata {
+      title
     }
-    allMarkdownRemark(sort: {fields: [frontmatter___date], order: DESC}, filter: {fields: {slug: {regex: "/blog/g"}}}) {
-      edges {
-        node {
-          excerpt
-          fields {
-            slug
-          }
-          frontmatter {
-            date(formatString: "MMMM DD, YYYY")
-            title
-            description
-          }
+  }
+  allMarkdownRemark(sort: {fields: [frontmatter___date], order: DESC}, filter: {frontmatter: {templateKey: {eq: "blog-post"}}}) {
+    edges {
+      node {
+        excerpt
+        fields {
+          slug
+        }
+        frontmatter {
+          date(formatString: "MMMM DD, YYYY")
+          title
+          description
         }
       }
     }
   }
+}
 `
