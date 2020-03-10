@@ -16,25 +16,26 @@ collections:
     label: "Settings"
     files:
       - file: "content/settings/index.md"
-        name: "website settings"
+        name: "websiteSettings"
         label: "Website Settings"
         fields:
           - { label: "Website Title", name: "title", widget: "string" }
           - { label: "Website Description", name: "description", widgets: "string" }
 
-  - name: "landing page components"
+  - name: "indexPageComponents"
     label: "Landing Page"
     files:
-      - file: "content/personal_profile/index.md"
-        name: "personal profile"
-        label: "Personal Profile"
+      - file: "src/pages/index/personal-profile/index.md"
+        name: "personalProfileV1"
+        label: "Personal Profile v1"
         fields:
+          - { label: "Component Key", name: "componentKey", widget: "hidden", default: "personal-profile-v1"}
           - { label: "Enabled", name: "enabled", widget: "boolean" }
           - { label: "Order", name: "order", widget: "number" }
           - { label: "Name", name: "name", widget: "string" }
           - {
               label: "Profile Image",
-              name: "personal profile photo",
+              name: "personalProfilePhoto",
               widget: "image",
             }
           - { label: "Tagline", name: "tagline", widget: "string" }
@@ -49,28 +50,29 @@ collections:
                   { label: href, name: href, widget: string },
                 ],
             }
-      - file: "content/resume/index.md"
-        name: "resume"
-        label: "Resume"
+      - file: "src/pages/landing/resume/index.md"
+        name: "resumeV1"
+        label: "Resume v1"
         fields:
+          - { label: "Component Key", name: "componentKey", widget: "hidden", default: "resume-v1"}
           - { label: "Enabled", name: "enabled", widget: "boolean" }
           - { label: "Order", name: "order", widget: "number" }
           - {
               label: "Work History",
-              name: "work history",
+              name: "workHistory",
               widget: "list",
               fields:
                 [
                   { label: "Company", name: "company", widget: "string" },
                   {
                     label: "Company Website URL",
-                    name: "company website",
+                    name: "companyWebsite",
                     widget: "string",
                   },
                   { label: Title, name: title, widget: string },
                   {
                     label: "Employment Start/End",
-                    name: "employment period",
+                    name: "employmentPeriod",
                     widget: string,
                   },
                   {
@@ -85,12 +87,13 @@ collections:
 
   - name: "blog"
     label: "Blog"
-    folder: "content/blog"
+    folder: "src/pages/blog"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     editor:
       preview: false
     fields:
+      - { label: "Template Key", name: "templateKey", widget: "hidden", default: "blog-post"}
       - { label: "Enabled", name: "enabled", widget: "boolean" }
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Publish Date", name: "date", widget: "datetime" }
