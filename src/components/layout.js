@@ -15,6 +15,7 @@ const Layout = ({ location, title, children }) => {
           marginBottom: rhythm(1.5),
           marginTop: 0,
         }}
+        // className='bg-gray-200'
       >
         <Link
           style={{
