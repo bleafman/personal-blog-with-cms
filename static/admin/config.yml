@@ -84,7 +84,7 @@ collections:
                     name: bulletpoints,
                     widget: list,
                     fields:
-                      [label: Bulletpoint, name: bulletpoint, widget: string],
+                      [{label: Bulletpoint, name: bulletpoint, widget: string}],
                   },
                 ],
             }
