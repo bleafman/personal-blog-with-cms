@@ -7,4 +7,5 @@ links:
     href: 'https://github.com/bleafman'
   - title: LinkedIn
     href: 'https://www.linkedin.com/in/brandonleafman/'
+order: 1
 ---
