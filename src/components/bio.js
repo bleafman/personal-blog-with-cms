@@ -9,58 +9,88 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Image from "gatsby-image"
 
+import { useProfileSettings } from '../queries';
+
 import { rhythm } from "../utils/typography"
 
 const Bio = () => {
-  const data = useStaticQuery(graphql`
-    query BioQuery {
-      avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
-        childImageSharp {
-          fixed(width: 50, height: 50) {
-            ...GatsbyImageSharpFixed
-          }
-        }
-      }
-      site {
-        siteMetadata {
-          author {
-            name
-            summary
-          }
-          social {
-            twitter
-          }
-        }
-      }
-    }
-  `)
+  // const data = useStaticQuery(graphql`
+  //   query BioQuery {
+  //     avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
+  //       childImageSharp {
+  //         fixed(width: 50, height: 50) {
+  //           ...GatsbyImageSharpFixed
+  //         }
+  //       }
+  //     }
+  //     site {
+  //       siteMetadata {
+  //         author {
+  //           name
+  //           summary
+  //         }
+  //         social {
+  //           twitter
+  //         }
+  //       }
+  //     }
+  //   }
+  // `)
 
-  const { author, social } = data.site.siteMetadata
+  // const { author, social } = data.site.siteMetadata
+  // return (
+  //   <div
+  //     style={{
+  //       display: `flex`,
+  //       marginBottom: rhythm(2.5),
+  //     }}
+  //   >
+  //     <Image
+  //       fixed={data.avatar.childImageSharp.fixed}
+  //       alt={author.name}
+  //       style={{
+  //         marginRight: rhythm(1 / 2),
+  //         marginBottom: 0,
+  //         minWidth: 50,
+  //         borderRadius: `100%`,
+  //       }}
+  //       imgStyle={{
+  //         borderRadius: `50%`,
+  //       }}
+  //     />
+  //     <p>
+  //       Written by <strong>{author.name}</strong> {author.summary}
+  //       {` `}
+  //       <a href={`https://twitter.com/${social.twitter}`}>
+  //         You should follow him on Twitter
+  //       </a>
+  //     </p>
+  //   </div>
+  // )
+
+  const {
+    name, 
+    tagline, 
+    links, 
+    personalProfilePhoto, 
+    summary} = useProfileSettings();
+
+  // return <pre>{JSON.stringify(data, null, 4)}</pre>
+
+
   return (
-    <div
+      <div
       style={{
         display: `flex`,
         marginBottom: rhythm(2.5),
       }}
     >
-      <Image
-        fixed={data.avatar.childImageSharp.fixed}
-        alt={author.name}
-        style={{
-          marginRight: rhythm(1 / 2),
-          marginBottom: 0,
-          minWidth: 50,
-          borderRadius: `100%`,
-        }}
-        imgStyle={{
-          borderRadius: `50%`,
-        }}
-      />
       <p>
-        Written by <strong>{author.name}</strong> {author.summary}
+        Written by <strong>{name}</strong>.
+        {tagline}
         {` `}
-        <a href={`https://twitter.com/${social.twitter}`}>
-          You should follow him on Twitter
+        <a href={`/`}>
+          You can see all of their posts here.
         </a>
       </p>
     </div>

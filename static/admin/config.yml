@@ -8,8 +8,8 @@ backend:
     uploadMedia: "[skip ci] Upload “{{path}}”"
     deleteMedia: "[skip ci] Delete “{{path}}”"
 
-media_folder: static/img
-public_folder: /img
+media_folder: static/uploads
+public_folder: /uploads
 
 collections:
   - name: "settings"
@@ -19,8 +19,8 @@ collections:
         name: "websiteSettings"
         label: "Website Settings"
         fields:
-          - { label: "Website Meta Title", name: "title", widget: "string", hint: 'The meta title for the site'}
-          - { label: "Website Meta Description", name: "description", widgets: "string", hint: 'The meta description for the site' }
+          - { label: "Website Meta Title", name: "metaTitle", widget: "string", hint: 'The meta title for the site'}
+          - { label: "Website Meta Description", name: "metaDescription", widgets: "string", hint: 'The meta description for the site' }
       - file: "content/settings/profile/index.md"
         name: "profileSettings"
         label: "Profile Settings"
